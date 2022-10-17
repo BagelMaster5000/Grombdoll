@@ -1,0 +1,11 @@
+[Top Layer]
+
+Accessory
+Shoes
+Outfit
+Eyes
+Mouth
+Base/Body
+Background
+
+[Bottom Layer]
