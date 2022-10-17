@@ -1,25 +1,52 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Grombdoll.ViewModels;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Grombdoll.Views {
-    /// <summary>
-    /// Interaction logic for DressUpView.xaml
-    /// </summary>
     public partial class DressUpView : UserControl {
+        DressUpViewModel _dressUpViewModel;
         public DressUpView() {
+            Loaded += OnLoaded;
+
             InitializeComponent();
+        }
+        private void OnLoaded(object sender, RoutedEventArgs e) { _dressUpViewModel = (DressUpViewModel)DataContext; }
+
+        private void BaseButtonClicked(object sender, RoutedEventArgs e) {
+            _dressUpViewModel.IncrementBaseSelection();
+            PlayAccessoryIncrementSFX();
+        }
+        private void EyesButtonClicked(object sender, RoutedEventArgs e) {
+            _dressUpViewModel.IncrementEyesSelection();
+            PlayAccessoryIncrementSFX();
+        }
+        private void MouthButtonClicked(object sender, RoutedEventArgs e) {
+            _dressUpViewModel.IncrementMouthSelection();
+            PlayAccessoryIncrementSFX();
+        }
+        private void OutfitButtonClicked(object sender, RoutedEventArgs e) {
+            _dressUpViewModel.IncrementOutfitSelection();
+            PlayAccessoryIncrementSFX();
+        }
+        private void ShoesButtonClicked(object sender, RoutedEventArgs e) {
+            _dressUpViewModel.IncrementShoesSelection();
+            PlayAccessoryIncrementSFX();
+        }
+        private void AccessoryButtonClicked(object sender, RoutedEventArgs e) {
+            _dressUpViewModel.IncrementAccessorySelection();
+            PlayAccessoryIncrementSFX();
+        }
+        private void BackgroundButtonClicked(object sender, RoutedEventArgs e) {
+            _dressUpViewModel.IncrementBackgroundSelection();
+            PlayAccessoryIncrementSFX();
+        }
+        private void ResetButtonClicked(object sender, RoutedEventArgs e) {
+            _dressUpViewModel.ResetCustomizations();
+            PlayAccessoryIncrementSFX();
+        }
+
+        private void PlayAccessoryIncrementSFX() {
+
         }
     }
 }

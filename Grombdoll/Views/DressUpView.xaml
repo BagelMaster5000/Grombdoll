@@ -1,16 +1,133 @@
-﻿<UserControl x:Class="Grombdoll.Views.DressUpView"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Grombdoll.Views"
-             mc:Ignorable="d" 
-             d:DesignHeight="1280" d:DesignWidth="720">
+﻿<UserControl
+    x:Class="Grombdoll.Views.DressUpView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Grombdoll.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="720"
+    d:DesignWidth="1280"
+    mc:Ignorable="d">
     <Grid>
-        <TextBlock Text="LOL!!"/>
-            <Image
-            x:Name="Background"
+        <!--  Debug  -->
+        <!--<Image
+            x:Name="Debug"
             Source="..\Graphics\Debug\TestingUI.jpg"
+            Stretch="UniformToFill" />-->
+
+        <!--  Layers  -->
+        <Image
+            x:Name="Background"
+            Source="{Binding CurBackgroundImagePath}"
             Stretch="UniformToFill" />
+        <Image
+            x:Name="Base"
+            Source="{Binding CurBaseImagePath}"
+            Stretch="UniformToFill" />
+        <Image
+            x:Name="Mouth"
+            Source="{Binding CurMouthImagePath}"
+            Stretch="UniformToFill" />
+        <Image
+            x:Name="Eyes"
+            Source="{Binding CurEyesImagePath}"
+            Stretch="UniformToFill" />
+        <Image
+            x:Name="Outfit"
+            Source="{Binding CurOutfitImagePath}"
+            Stretch="UniformToFill" />
+        <Image
+            x:Name="Shoes"
+            Source="{Binding CurShoesImagePath}"
+            Stretch="UniformToFill" />
+        <Image
+            x:Name="Accessory"
+            Source="{Binding CurAccessoryImagePath}"
+            Stretch="UniformToFill" />
+
+        <Grid x:Name="CustomizationButtons" Margin="672,52,101,48">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="160" />
+                <RowDefinition Height="160" />
+                <RowDefinition Height="160" />
+                <RowDefinition Height="160" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="170" />
+                <ColumnDefinition Width="170" />
+                <ColumnDefinition Width="170" />
+            </Grid.ColumnDefinitions>
+            <Button
+                Grid.Row="0"
+                Grid.Column="0"
+                Background="Transparent"
+                Click="BaseButtonClicked"
+                Style="{StaticResource BouncyButtonBehavior}">
+                <Image Source="..\Graphics\UI_Icons\body.png" />
+            </Button>
+            <Button
+                Grid.Row="0"
+                Grid.Column="1"
+                Background="Transparent"
+                Click="EyesButtonClicked"
+                Style="{StaticResource BouncyButtonBehavior}">
+                <Image Source="..\Graphics\UI_Icons\eyes.png" />
+            </Button>
+            <Button
+                Grid.Row="0"
+                Grid.Column="2"
+                Background="Transparent"
+                Click="MouthButtonClicked"
+                Style="{StaticResource BouncyButtonBehavior}">
+                <Image Source="..\Graphics\UI_Icons\mouth.png" />
+            </Button>
+            <Button
+                Grid.Row="1"
+                Grid.Column="0"
+                Background="Transparent"
+                Click="OutfitButtonClicked"
+                Style="{StaticResource BouncyButtonBehavior}">
+                <Image Source="..\Graphics\UI_Icons\top.png" />
+            </Button>
+            <Button
+                Grid.Row="1"
+                Grid.Column="1"
+                Background="Transparent"
+                Click="ShoesButtonClicked"
+                Style="{StaticResource BouncyButtonBehavior}">
+                <Image Source="..\Graphics\UI_Icons\shoe.png" />
+            </Button>
+            <Button
+                Grid.Row="1"
+                Grid.Column="2"
+                Background="Transparent"
+                Click="AccessoryButtonClicked"
+                Style="{StaticResource BouncyButtonBehavior}">
+                <Image Source="..\Graphics\UI_Icons\accessory.png" />
+            </Button>
+            <Button
+                Grid.Row="2"
+                Grid.Column="0"
+                Background="Transparent"
+                Click="BackgroundButtonClicked"
+                Style="{StaticResource BouncyButtonBehavior}">
+                <Image Source="..\Graphics\UI_Icons\background.png" />
+            </Button>
+            <Button
+                Grid.Row="2"
+                Grid.Column="1"
+                Background="Transparent"
+                Style="{StaticResource BouncyButtonBehavior}">
+                <Image Source="..\Graphics\UI_Icons\mute.png" />
+            </Button>
+            <Button
+                Grid.Row="2"
+                Grid.Column="2"
+                Background="Transparent"
+                Click="ResetButtonClicked"
+                Style="{StaticResource BouncyButtonBehavior}">
+                <Image Source="..\Graphics\UI_Icons\clear_all.png" />
+            </Button>
+        </Grid>
     </Grid>
 </UserControl>

@@ -8,13 +8,107 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Graphics\Accessories\Bagel.png" />
+    <None Remove="Graphics\Accessories\CandyBucket.png" />
+    <None Remove="Graphics\Accessories\ForkKnife.png" />
+    <None Remove="Graphics\Accessories\Glube.png" />
+    <None Remove="Graphics\Accessories\GrombitEternal.png" />
+    <None Remove="Graphics\Accessories\Jellycat.png" />
     <None Remove="Graphics\AppBackground.png" />
+    <None Remove="Graphics\Backgrounds\Costco.png" />
+    <None Remove="Graphics\Backgrounds\GunTable.png" />
+    <None Remove="Graphics\Backgrounds\Lemons.png" />
+    <None Remove="Graphics\Backgrounds\Standard.png" />
+    <None Remove="Graphics\Backgrounds\TinyCon.png" />
+    <None Remove="Graphics\Base\Desaturated.png" />
+    <None Remove="Graphics\Base\Eternal.png" />
+    <None Remove="Graphics\Base\Spoopy.png" />
+    <None Remove="Graphics\Base\Standard.png" />
     <None Remove="Graphics\Debug\TestingUI.jpg" />
+    <None Remove="Graphics\Eyes\Happy.png" />
+    <None Remove="Graphics\Eyes\Picross.png" />
+    <None Remove="Graphics\Eyes\Pretty.png" />
+    <None Remove="Graphics\Eyes\Standard.png" />
+    <None Remove="Graphics\Mouths\n.png" />
+    <None Remove="Graphics\Mouths\O.png" />
+    <None Remove="Graphics\Mouths\Standard.png" />
+    <None Remove="Graphics\Mouths\U.png" />
+    <None Remove="Graphics\Mouths\V.png" />
+    <None Remove="Graphics\Mouths\w.png" />
+    <None Remove="Graphics\Outfits\HexDream.png" />
+    <None Remove="Graphics\Outfits\HexFish.png" />
+    <None Remove="Graphics\Outfits\HexGoodVibes.png" />
+    <None Remove="Graphics\Outfits\HexTrash.png" />
+    <None Remove="Graphics\Outfits\NiteVision.png" />
+    <None Remove="Graphics\Outfits\RevivalJam.png" />
+    <None Remove="Graphics\Outfits\Shelly.png" />
+    <None Remove="Graphics\Outfits\TopGun.png" />
+    <None Remove="Graphics\Shoes\EasyToClean.png" />
+    <None Remove="Graphics\Shoes\PennySlippers.png" />
+    <None Remove="Graphics\Shoes\Red.png" />
+    <None Remove="Graphics\Shoes\TylerSneaks.png" />
+    <None Remove="Graphics\UI_Icons\accessory.png" />
+    <None Remove="Graphics\UI_Icons\background.png" />
+    <None Remove="Graphics\UI_Icons\body.png" />
+    <None Remove="Graphics\UI_Icons\clear_all.png" />
+    <None Remove="Graphics\UI_Icons\credits.png" />
+    <None Remove="Graphics\UI_Icons\eyes.png" />
+    <None Remove="Graphics\UI_Icons\mouth.png" />
+    <None Remove="Graphics\UI_Icons\mute.png" />
+    <None Remove="Graphics\UI_Icons\shoe.png" />
+    <None Remove="Graphics\UI_Icons\top.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Graphics\Accessories\Bagel.png" />
+    <Resource Include="Graphics\Accessories\CandyBucket.png" />
+    <Resource Include="Graphics\Accessories\ForkKnife.png" />
+    <Resource Include="Graphics\Accessories\Glube.png" />
+    <Resource Include="Graphics\Accessories\GrombitEternal.png" />
+    <Resource Include="Graphics\Accessories\Jellycat.png" />
     <Resource Include="Graphics\AppBackground.png" />
+    <Resource Include="Graphics\Backgrounds\Costco.png" />
+    <Resource Include="Graphics\Backgrounds\GunTable.png" />
+    <Resource Include="Graphics\Backgrounds\Lemons.png" />
+    <Resource Include="Graphics\Backgrounds\Standard.png" />
+    <Resource Include="Graphics\Backgrounds\TinyCon.png" />
+    <Resource Include="Graphics\Base\Desaturated.png" />
+    <Resource Include="Graphics\Base\Eternal.png" />
+    <Resource Include="Graphics\Base\Spoopy.png" />
+    <Resource Include="Graphics\Base\Standard.png" />
     <Resource Include="Graphics\Debug\TestingUI.jpg" />
+    <Resource Include="Graphics\Eyes\Happy.png" />
+    <Resource Include="Graphics\Eyes\Picross.png" />
+    <Resource Include="Graphics\Eyes\Pretty.png" />
+    <Resource Include="Graphics\Eyes\Standard.png" />
+    <Resource Include="Graphics\Mouths\n.png" />
+    <Resource Include="Graphics\Mouths\O.png" />
+    <Resource Include="Graphics\Mouths\Standard.png" />
+    <Resource Include="Graphics\Mouths\U.png" />
+    <Resource Include="Graphics\Mouths\V.png" />
+    <Resource Include="Graphics\Mouths\w.png" />
+    <Resource Include="Graphics\Outfits\HexDream.png" />
+    <Resource Include="Graphics\Outfits\HexFish.png" />
+    <Resource Include="Graphics\Outfits\HexGoodVibes.png" />
+    <Resource Include="Graphics\Outfits\HexTrash.png" />
+    <Resource Include="Graphics\Outfits\NiteVision.png" />
+    <Resource Include="Graphics\Outfits\RevivalJam.png" />
+    <Resource Include="Graphics\Outfits\Shelly.png" />
+    <Resource Include="Graphics\Outfits\TopGun.png" />
+    <Resource Include="Graphics\Shoes\EasyToClean.png" />
+    <Resource Include="Graphics\Shoes\PennySlippers.png" />
+    <Resource Include="Graphics\Shoes\Red.png" />
+    <Resource Include="Graphics\Shoes\TylerSneaks.png" />
+    <Resource Include="Graphics\UI_Icons\accessory.png" />
+    <Resource Include="Graphics\UI_Icons\background.png" />
+    <Resource Include="Graphics\UI_Icons\body.png" />
+    <Resource Include="Graphics\UI_Icons\clear_all.png" />
+    <Resource Include="Graphics\UI_Icons\credits.png" />
+    <Resource Include="Graphics\UI_Icons\eyes.png" />
+    <Resource Include="Graphics\UI_Icons\mouth.png" />
+    <Resource Include="Graphics\UI_Icons\mute.png" />
+    <Resource Include="Graphics\UI_Icons\shoe.png" />
+    <Resource Include="Graphics\UI_Icons\top.png" />
   </ItemGroup>
 
 </Project>
