@@ -3,10 +3,41 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Grombdoll"
+        xmlns:local="clr-namespace:Grombdoll" xmlns:views="clr-namespace:Grombdoll.Views" xmlns:vms="clr-namespace:Grombdoll.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Grombdoll" Height="720" Width="1280">
+    <Grid Background="DarkGreen">
+        <Grid.Resources>
+            <DataTemplate DataType="{x:Type vms:TitleViewModel}">
+                <views:TitleView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:DressUpViewModel}">
+                <views:DressUpView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:GalleryViewModel}">
+                <views:GalleryView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:SettingsViewModel}">
+                <views:SettingsView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:CreditsViewModel}">
+                <views:CreditsView />
+            </DataTemplate>
+        </Grid.Resources>
 
+        <Image
+            x:Name="Background"
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            Source="..\Graphics\AppBackground.png"
+            Stretch="UniformToFill" />
+
+        <ContentControl Content="{Binding CurrentViewModel}" />
+
+        <Border
+            Name="TransitionOverlay"
+            Background="White"
+            IsHitTestVisible="False"
+            Opacity="1" />
     </Grid>
 </Window>

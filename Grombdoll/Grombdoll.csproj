@@ -7,4 +7,14 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Graphics\AppBackground.png" />
+    <None Remove="Graphics\Debug\TestingUI.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Graphics\AppBackground.png" />
+    <Resource Include="Graphics\Debug\TestingUI.jpg" />
+  </ItemGroup>
+
 </Project>
