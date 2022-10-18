@@ -9,7 +9,7 @@ namespace Grombdoll.Views {
     public partial class DressUpView : UserControl {
         DressUpViewModel _dressUpViewModel;
 
-        private float slideInTime = 0.3f;
+        private float slideInTime = 0.4f;
         private Duration slideInDuration;
         private DoubleAnimation slideInAnimation;
         private IEasingFunction slideInEasingFunction;
@@ -23,7 +23,7 @@ namespace Grombdoll.Views {
             _dressUpViewModel = (DressUpViewModel)DataContext;
 
             slideInDuration = new Duration(TimeSpan.FromSeconds(slideInTime));
-            slideInAnimation = new DoubleAnimation(100, 0, slideInDuration);
+            slideInAnimation = new DoubleAnimation(75, 0, slideInDuration);
             slideInEasingFunction = new BackEase() { EasingMode = EasingMode.EaseOut };
             slideInAnimation.EasingFunction = slideInEasingFunction;
 
