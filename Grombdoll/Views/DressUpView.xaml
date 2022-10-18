@@ -16,34 +16,71 @@
             Stretch="UniformToFill" />-->
 
         <!--  Layers  -->
-        <Image
-            x:Name="Background"
-            Source="{Binding CurBackgroundImagePath}"
-            Stretch="UniformToFill" />
-        <Image
-            x:Name="Base"
-            Source="{Binding CurBaseImagePath}"
-            Stretch="UniformToFill" />
-        <Image
-            x:Name="Mouth"
-            Source="{Binding CurMouthImagePath}"
-            Stretch="UniformToFill" />
-        <Image
-            x:Name="Eyes"
-            Source="{Binding CurEyesImagePath}"
-            Stretch="UniformToFill" />
-        <Image
-            x:Name="Outfit"
-            Source="{Binding CurOutfitImagePath}"
-            Stretch="UniformToFill" />
-        <Image
-            x:Name="Shoes"
-            Source="{Binding CurShoesImagePath}"
-            Stretch="UniformToFill" />
-        <Image
-            x:Name="Accessory"
-            Source="{Binding CurAccessoryImagePath}"
-            Stretch="UniformToFill" />
+        <Grid x:Name="AllLayers">
+            <Grid.RenderTransform>
+                <ScaleTransform ScaleX="1" ScaleY="1" />
+            </Grid.RenderTransform>
+            <Grid.RenderTransformOrigin>
+                <Point X="0.25" Y="0.5" />
+            </Grid.RenderTransformOrigin>
+
+            <Image
+                x:Name="Background"
+                Source="{Binding CurBackgroundImagePath}"
+                Stretch="UniformToFill">
+                <Image.RenderTransform>
+                    <TranslateTransform X="0" Y="0" />
+                </Image.RenderTransform>
+            </Image>
+            <Image
+                x:Name="Base"
+                Source="{Binding CurBaseImagePath}"
+                Stretch="UniformToFill">
+                <Image.RenderTransform>
+                    <TranslateTransform X="0" Y="0" />
+                </Image.RenderTransform>
+            </Image>
+            <Image
+                x:Name="Mouth"
+                Source="{Binding CurMouthImagePath}"
+                Stretch="UniformToFill">
+                <Image.RenderTransform>
+                    <TranslateTransform X="0" Y="0" />
+                </Image.RenderTransform>
+            </Image>
+            <Image
+                x:Name="Eyes"
+                Source="{Binding CurEyesImagePath}"
+                Stretch="UniformToFill">
+                <Image.RenderTransform>
+                    <TranslateTransform X="0" Y="0" />
+                </Image.RenderTransform>
+            </Image>
+            <Image
+                x:Name="Outfit"
+                Source="{Binding CurOutfitImagePath}"
+                Stretch="UniformToFill">
+                <Image.RenderTransform>
+                    <TranslateTransform X="0" Y="0" />
+                </Image.RenderTransform>
+            </Image>
+            <Image
+                x:Name="Shoes"
+                Source="{Binding CurShoesImagePath}"
+                Stretch="UniformToFill">
+                <Image.RenderTransform>
+                    <TranslateTransform X="0" Y="0" />
+                </Image.RenderTransform>
+            </Image>
+            <Image
+                x:Name="Accessory"
+                Source="{Binding CurAccessoryImagePath}"
+                Stretch="UniformToFill">
+                <Image.RenderTransform>
+                    <TranslateTransform X="0" Y="0" />
+                </Image.RenderTransform>
+            </Image>
+        </Grid>
 
         <Grid x:Name="CustomizationButtons" Margin="672,52,101,48">
             <Grid.RowDefinitions>
