@@ -47,6 +47,7 @@
     <None Remove="Graphics\Shoes\PennySlippers.png" />
     <None Remove="Graphics\Shoes\Red.png" />
     <None Remove="Graphics\Shoes\TylerSneaks.png" />
+    <None Remove="Graphics\TitleText.png" />
     <None Remove="Graphics\UI_Icons\accessory.png" />
     <None Remove="Graphics\UI_Icons\background.png" />
     <None Remove="Graphics\UI_Icons\body.png" />
@@ -99,6 +100,7 @@
     <Resource Include="Graphics\Shoes\PennySlippers.png" />
     <Resource Include="Graphics\Shoes\Red.png" />
     <Resource Include="Graphics\Shoes\TylerSneaks.png" />
+    <Resource Include="Graphics\TitleText.png" />
     <Resource Include="Graphics\UI_Icons\accessory.png" />
     <Resource Include="Graphics\UI_Icons\background.png" />
     <Resource Include="Graphics\UI_Icons\body.png" />

@@ -28,7 +28,7 @@ namespace Grombdoll.ViewModels {
         public MainViewModel() {
             InitializeTransitionTimer();
 
-            ShowDressUpView();
+            ShowTitleView();
         }
 
         private void InitializeTransitionTimer() {
