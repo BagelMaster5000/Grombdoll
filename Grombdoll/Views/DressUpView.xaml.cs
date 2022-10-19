@@ -1,9 +1,12 @@
 ﻿using Grombdoll.ViewModels;
 using System;
+using System.Diagnostics;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+using System.Windows.Media.Imaging;
 
 namespace Grombdoll.Views {
     public partial class DressUpView : UserControl {
@@ -38,6 +41,7 @@ namespace Grombdoll.Views {
             _dressUpViewModel.OnReset += PlayResetAnimation;
         }
 
+        // Buttons clicked
         private void BaseButtonClicked(object sender, RoutedEventArgs e) => _dressUpViewModel.IncrementBaseSelection();
         private void EyesButtonClicked(object sender, RoutedEventArgs e) => _dressUpViewModel.IncrementEyesSelection();
         private void MouthButtonClicked(object sender, RoutedEventArgs e) => _dressUpViewModel.IncrementMouthSelection();
@@ -46,6 +50,30 @@ namespace Grombdoll.Views {
         private void AccessoryButtonClicked(object sender, RoutedEventArgs e) => _dressUpViewModel.IncrementAccessorySelection();
         private void BackgroundButtonClicked(object sender, RoutedEventArgs e) => _dressUpViewModel.IncrementBackgroundSelection();
         private void ResetButtonClicked(object sender, RoutedEventArgs e) => _dressUpViewModel.ResetCustomizations();
+        private void SaveButtonClicked(object sender, RoutedEventArgs e) {
+            double width = 50;
+            double height = 100;
+            RenderTargetBitmap bmpCopied = new RenderTargetBitmap((int)Math.Round(width), (int)Math.Round(height), 96, 96, PixelFormats.Default);
+            DrawingVisual dv = new DrawingVisual();
+            using (DrawingContext dc = dv.RenderOpen()) {
+                VisualBrush vb = new VisualBrush(AllLayers);
+                dc.DrawRectangle(vb, null, new Rect(new Point(), new Size(width, height)));
+            }
+            bmpCopied.Render(dv);
+            Clipboard.SetImage(bmpCopied);
+
+
+            String appStartPath = System.IO.Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
+            string filePath = String.Format(appStartPath + "\\" + "TestGrombSave.bmp", "SavingTest");
+
+            BitmapEncoder encoder = new BmpBitmapEncoder();
+            encoder.Frames.Add(BitmapFrame.Create(bmpCopied));
+            using (FileStream stream = new FileStream(filePath, FileMode.Create))
+                encoder.Save(stream);
+        }
+
+
+
 
 
         private void PlayBaseSlideInAnimation() => Base.RenderTransform.BeginAnimation(TranslateTransform.XProperty, slideInAnimation);
