@@ -21,6 +21,9 @@ namespace Grombdoll.ViewModels {
         private string[] baseImagePaths = {
             @"..\Graphics\Base\Standard.png",
             @"..\Graphics\Base\Desaturated.png",
+            @"..\Graphics\Base\Cyan.png",
+            @"..\Graphics\Base\Magenta.png",
+            @"..\Graphics\Base\Yellow.png",
             @"..\Graphics\Base\Eternal.png",
             @"..\Graphics\Base\Spoopy.png",
         };
@@ -37,7 +40,11 @@ namespace Grombdoll.ViewModels {
         private string[] eyesImagePaths = {
             @"..\Graphics\Eyes\Standard.png",
             @"..\Graphics\Eyes\Happy.png",
+            @"..\Graphics\Eyes\OhNo.png",
             @"..\Graphics\Eyes\Pretty.png",
+            @"..\Graphics\Eyes\Smug.png",
+            @"..\Graphics\Eyes\Squint.png",
+            @"..\Graphics\Eyes\X.png",
             @"..\Graphics\Eyes\Picross.png",
         };
         public void IncrementEyesSelection() {
@@ -54,8 +61,11 @@ namespace Grombdoll.ViewModels {
             @"..\Graphics\Mouths\Standard.png",
             @"..\Graphics\Mouths\n.png",
             @"..\Graphics\Mouths\O.png",
+            @"..\Graphics\Mouths\P.png",
             @"..\Graphics\Mouths\U.png",
             @"..\Graphics\Mouths\V.png",
+            @"..\Graphics\Mouths\GameDev.png",
+            @"..\Graphics\Mouths\A.png",
             @"..\Graphics\Mouths\w.png",
         };
         public void IncrementMouthSelection() {
@@ -110,6 +120,7 @@ namespace Grombdoll.ViewModels {
             @"..\Graphics\Accessories\CandyBucket.png",
             @"..\Graphics\Accessories\ForkKnife.png",
             @"..\Graphics\Accessories\Bagel.png",
+            @"..\Graphics\Accessories\Pin.png",
             @"..\Graphics\Accessories\Glube.png",
             @"..\Graphics\Accessories\GrombitEternal.png",
             @"..\Graphics\Accessories\Jellycat.png",

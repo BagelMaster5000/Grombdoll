@@ -51,8 +51,8 @@ namespace Grombdoll.Views {
         private void BackgroundButtonClicked(object sender, RoutedEventArgs e) => _dressUpViewModel.IncrementBackgroundSelection();
         private void ResetButtonClicked(object sender, RoutedEventArgs e) => _dressUpViewModel.ResetCustomizations();
         private void SaveButtonClicked(object sender, RoutedEventArgs e) {
-            double width = 50;
-            double height = 100;
+            double width = 580;
+            double height = 680;
             RenderTargetBitmap bmpCopied = new RenderTargetBitmap((int)Math.Round(width), (int)Math.Round(height), 96, 96, PixelFormats.Default);
             DrawingVisual dv = new DrawingVisual();
             using (DrawingContext dc = dv.RenderOpen()) {
