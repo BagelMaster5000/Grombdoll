@@ -48,8 +48,8 @@
                     </Image.RenderTransform>
                 </Image>
                 <Image
-                    x:Name="Mouth"
-                    Source="{Binding CurMouthImagePath}"
+                    x:Name="Outfit"
+                    Source="{Binding CurOutfitImagePath}"
                     Stretch="UniformToFill">
                     <Image.RenderTransform>
                         <TranslateTransform X="0" Y="0" />
@@ -64,8 +64,8 @@
                     </Image.RenderTransform>
                 </Image>
                 <Image
-                    x:Name="Outfit"
-                    Source="{Binding CurOutfitImagePath}"
+                    x:Name="Mouth"
+                    Source="{Binding CurMouthImagePath}"
                     Stretch="UniformToFill">
                     <Image.RenderTransform>
                         <TranslateTransform X="0" Y="0" />
