@@ -1,4 +1,11 @@
-﻿namespace Grombdoll.Models {
+﻿using System.Diagnostics;
+using System.IO;
+using System.Windows.Media.Imaging;
+using System.Windows.Media;
+using System.Windows;
+using System;
+
+namespace Grombdoll.Models {
     public class DressUpModel {
         public DressUpModel() {
             ResetCustomizations();
@@ -104,6 +111,29 @@
             curShoes = 0;
             curAccessory = 0;
             curBackground = 0;
+        }
+
+
+        public void CopyGrombitToClipboardAndSaveLocally(Visual currentGrombitVisual) {
+            double width = 580;
+            double height = 680;
+            RenderTargetBitmap bmpCopied = new RenderTargetBitmap((int)Math.Round(width), (int)Math.Round(height), 96, 96, PixelFormats.Default);
+            DrawingVisual dv = new DrawingVisual();
+            using (DrawingContext dc = dv.RenderOpen()) {
+                VisualBrush vb = new VisualBrush(currentGrombitVisual);
+                dc.DrawRectangle(vb, null, new Rect(new Point(), new Size(width, height)));
+            }
+            bmpCopied.Render(dv);
+            Clipboard.SetImage(bmpCopied);
+
+
+            String appStartPath = System.IO.Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
+            string filePath = String.Format(appStartPath + "\\" + "TestGrombSave.bmp", "SavingTest");
+
+            BitmapEncoder encoder = new BmpBitmapEncoder();
+            encoder.Frames.Add(BitmapFrame.Create(bmpCopied));
+            using (FileStream stream = new FileStream(filePath, FileMode.Create))
+                encoder.Save(stream);
         }
     }
 }

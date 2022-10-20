@@ -1,5 +1,6 @@
 ﻿using Grombdoll.Models;
 using System;
+using System.Windows.Media;
 
 namespace Grombdoll.ViewModels {
     public class DressUpViewModel : ViewModelBase {
@@ -116,5 +117,7 @@ namespace Grombdoll.ViewModels {
                 return showCreditsView();
             };
         }
+
+        public void CopyGrombitToClipboardAndSaveLocally(Visual currentGrombitVisual) => _dressUpModel.CopyGrombitToClipboardAndSaveLocally(currentGrombitVisual);
     }
 }

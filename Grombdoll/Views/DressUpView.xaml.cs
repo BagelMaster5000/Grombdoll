@@ -50,30 +50,7 @@ namespace Grombdoll.Views {
         private void AccessoryButtonClicked(object sender, RoutedEventArgs e) => _dressUpViewModel.IncrementAccessorySelection();
         private void BackgroundButtonClicked(object sender, RoutedEventArgs e) => _dressUpViewModel.IncrementBackgroundSelection();
         private void ResetButtonClicked(object sender, RoutedEventArgs e) => _dressUpViewModel.ResetCustomizations();
-        private void SaveButtonClicked(object sender, RoutedEventArgs e) {
-            double width = 580;
-            double height = 680;
-            RenderTargetBitmap bmpCopied = new RenderTargetBitmap((int)Math.Round(width), (int)Math.Round(height), 96, 96, PixelFormats.Default);
-            DrawingVisual dv = new DrawingVisual();
-            using (DrawingContext dc = dv.RenderOpen()) {
-                VisualBrush vb = new VisualBrush(AllLayers);
-                dc.DrawRectangle(vb, null, new Rect(new Point(), new Size(width, height)));
-            }
-            bmpCopied.Render(dv);
-            Clipboard.SetImage(bmpCopied);
-
-
-            String appStartPath = System.IO.Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
-            string filePath = String.Format(appStartPath + "\\" + "TestGrombSave.bmp", "SavingTest");
-
-            BitmapEncoder encoder = new BmpBitmapEncoder();
-            encoder.Frames.Add(BitmapFrame.Create(bmpCopied));
-            using (FileStream stream = new FileStream(filePath, FileMode.Create))
-                encoder.Save(stream);
-        }
-
-
-
+        private void SaveButtonClicked(object sender, RoutedEventArgs e) => _dressUpViewModel.CopyGrombitToClipboardAndSaveLocally(AllLayers);
 
 
         private void PlayBaseSlideInAnimation() => Base.RenderTransform.BeginAnimation(TranslateTransform.XProperty, slideInAnimation);
