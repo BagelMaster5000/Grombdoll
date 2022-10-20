@@ -118,6 +118,8 @@ namespace Grombdoll.ViewModels {
             };
         }
 
-        public void CopyGrombitToClipboardAndSaveLocally(Visual currentGrombitVisual) => _dressUpModel.CopyGrombitToClipboardAndSaveLocally(currentGrombitVisual);
+        public void CopyGrombitToClipboardAndSaveLocally(Visual currentGrombitVisual) {
+            _dressUpModel.CopyGrombitToClipboardAndSaveLocally(currentGrombitVisual);
+        }
     }
 }
