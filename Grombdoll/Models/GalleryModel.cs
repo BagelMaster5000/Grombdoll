@@ -19,8 +19,7 @@ namespace Grombdoll.Models {
         }
 
         public void GenerateGrombitImages() {
-            string appStartPath = System.IO.Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
-            DirectoryInfo d = new DirectoryInfo(appStartPath + "\\" + GlobalVariables.GROMBIT_SAVE_FOLDER_NAME);
+            DirectoryInfo d = GetSaveFileDirectoryInfo();
             FileInfo[] files = d.GetFiles("*.bmp");
             AllGrombitImages = new GrombitGridImage[files.Length];
             for (int i = 0; i < files.Length; i++) {
@@ -42,5 +41,15 @@ namespace Grombdoll.Models {
             }
         }
 
+        public void OpenGrombSaveFolder() {
+            DirectoryInfo d = GetSaveFileDirectoryInfo();
+            Process.Start("explorer.exe", d.FullName);
+        }
+
+        private static DirectoryInfo GetSaveFileDirectoryInfo() {
+            string appStartPath = Path.GetDirectoryName(Environment.ProcessPath);
+            DirectoryInfo directoryInfo = new DirectoryInfo(appStartPath + "\\" + GlobalVariables.GROMBIT_SAVE_FOLDER_NAME);
+            return directoryInfo;
+        }
     }
 }

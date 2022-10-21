@@ -60,12 +60,14 @@
     <None Remove="Graphics\Shoes\TylerSneaks.png" />
     <None Remove="Graphics\TitleText.png" />
     <None Remove="Graphics\UI_Icons\accessory.png" />
+    <None Remove="Graphics\UI_Icons\Arrow.png" />
     <None Remove="Graphics\UI_Icons\Back.png" />
     <None Remove="Graphics\UI_Icons\background.png" />
     <None Remove="Graphics\UI_Icons\body.png" />
     <None Remove="Graphics\UI_Icons\clear_all.png" />
     <None Remove="Graphics\UI_Icons\credits.png" />
     <None Remove="Graphics\UI_Icons\eyes.png" />
+    <None Remove="Graphics\UI_Icons\folder.png" />
     <None Remove="Graphics\UI_Icons\Gallery.png" />
     <None Remove="Graphics\UI_Icons\mouth.png" />
     <None Remove="Graphics\UI_Icons\mute.png" />
@@ -133,6 +135,7 @@
     <Resource Include="Graphics\Shoes\TylerSneaks.png" />
     <Resource Include="Graphics\TitleText.png" />
     <Resource Include="Graphics\UI_Icons\accessory.png" />
+    <Resource Include="Graphics\UI_Icons\Arrow.png" />
     <Resource Include="Graphics\UI_Icons\Back.png" />
     <Resource Include="Graphics\UI_Icons\background.png" />
     <Resource Include="Graphics\UI_Icons\body.png" />
@@ -140,6 +143,7 @@
     <Resource Include="Graphics\UI_Icons\credits.png" />
     <Resource Include="Graphics\UI_Icons\eyes.png" />
     <Resource Include="Graphics\UI_Icons\Gallery.png" />
+    <Resource Include="Graphics\UI_Icons\folder.png" />
     <Resource Include="Graphics\UI_Icons\mouth.png" />
     <Resource Include="Graphics\UI_Icons\mute.png" />
     <Resource Include="Graphics\UI_Icons\Save.png" />

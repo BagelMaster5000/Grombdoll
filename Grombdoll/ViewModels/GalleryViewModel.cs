@@ -1,6 +1,5 @@
 ﻿using Grombdoll.Models;
 using System;
-using System.Windows.Media;
 using static Grombdoll.Models.GalleryModel;
 
 namespace Grombdoll.ViewModels {
@@ -14,9 +13,12 @@ namespace Grombdoll.ViewModels {
             _galleryModel = new GalleryModel();
 
             ShowDressUpView = () => {
-                //AudioSystem.PlayPuzzleStart();
                 return showDressUpView();
             };
+        }
+
+        public void OpenGrombSaveFolder() {
+            _galleryModel.OpenGrombSaveFolder();
         }
     }
 }
