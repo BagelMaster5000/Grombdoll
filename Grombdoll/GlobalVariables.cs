@@ -6,5 +6,7 @@ namespace Grombdoll {
 
         public const string GROMBIT_SAVE_FOLDER_NAME = "SavedGrombits";
         public const string GROMBIT_SAVE_NAME = "Gromb";
+
+        public const int GALLERY_NUM_COLUMNS = 4;
     }
 }

@@ -148,6 +148,7 @@ namespace Grombdoll.Models {
             currentGrombitSaved = false;
         }
 
+
         public void CopyGrombitToClipboardAndSaveLocally(Visual currentGrombitVisual) {
             RenderTargetBitmap bmpCopied = CopyGrombitToClipboard(currentGrombitVisual);
 
@@ -184,7 +185,6 @@ namespace Grombdoll.Models {
             using (FileStream stream = new FileStream(filePath, FileMode.Create))
                 encoder.Save(stream);
         }
-
         private int GetNextAvailableSavedGrombitIndex() {
             string appStartPath = System.IO.Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
             DirectoryInfo d = new DirectoryInfo(appStartPath + "\\" + GlobalVariables.GROMBIT_SAVE_FOLDER_NAME);

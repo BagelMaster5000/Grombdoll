@@ -77,6 +77,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Graphics\Accessories\Bagel.png" />
     <Resource Include="Graphics\Accessories\CandyBucket.png" />
     <Resource Include="Graphics\Accessories\ForkKnife.png" />

@@ -5,6 +5,13 @@ using System.Windows.Media;
 namespace Grombdoll.ViewModels {
     public class DressUpViewModel : ViewModelBase {
         private readonly DressUpModel _dressUpModel;
+        public string CurBaseImagePath => _dressUpModel.CurBaseImagePath;
+        public string CurEyesImagePath => _dressUpModel.CurEyesImagePath;
+        public string CurMouthImagePath => _dressUpModel.CurMouthImagePath;
+        public string CurOutfitImagePath => _dressUpModel.CurOutfitImagePath;
+        public string CurShoesImagePath => _dressUpModel.CurShoesImagePath;
+        public string CurAccessoryImagePath => _dressUpModel.CurAccessoryImagePath;
+        public string CurBackgroundImagePath => _dressUpModel.CurBackgroundImagePath;
 
         public Func<bool> ShowSettingsView;
         public Func<bool> ShowGalleryView;
@@ -20,7 +27,20 @@ namespace Grombdoll.ViewModels {
         public Action OnBackgroundChanged;
         public Action OnReset;
 
-        public string CurBaseImagePath => _dressUpModel.CurBaseImagePath;
+        public DressUpViewModel(Func<bool> showSettingsView, Func<bool> showGalleryView, Func<bool> showCreditsView) {
+            _dressUpModel = new DressUpModel();
+
+            ShowSettingsView = () => {
+                return showSettingsView();
+            };
+            ShowGalleryView = () => {
+                return showGalleryView();
+            };
+            ShowCreditsView = () => {
+                return showCreditsView();
+            };
+        }
+
         public void IncrementBaseSelection() {
             _dressUpModel.IncrementBaseSelection();
 
@@ -30,7 +50,6 @@ namespace Grombdoll.ViewModels {
             OnCustomizationChanged?.Invoke();
         }
 
-        public string CurEyesImagePath => _dressUpModel.CurEyesImagePath;
         public void IncrementEyesSelection() {
             _dressUpModel.IncrementEyesSelection();
 
@@ -40,7 +59,6 @@ namespace Grombdoll.ViewModels {
             OnCustomizationChanged?.Invoke();
         }
 
-        public string CurMouthImagePath => _dressUpModel.CurMouthImagePath;
         public void IncrementMouthSelection() {
             _dressUpModel.IncrementMouthSelection();
 
@@ -50,7 +68,6 @@ namespace Grombdoll.ViewModels {
             OnCustomizationChanged?.Invoke();
         }
 
-        public string CurOutfitImagePath => _dressUpModel.CurOutfitImagePath;
         public void IncrementOutfitSelection() {
             _dressUpModel.IncrementOutfitSelection();
 
@@ -60,7 +77,6 @@ namespace Grombdoll.ViewModels {
             OnCustomizationChanged?.Invoke();
         }
 
-        public string CurShoesImagePath => _dressUpModel.CurShoesImagePath;
         public void IncrementShoesSelection() {
             _dressUpModel.IncrementShoesSelection();
 
@@ -70,7 +86,6 @@ namespace Grombdoll.ViewModels {
             OnCustomizationChanged?.Invoke();
         }
 
-        public string CurAccessoryImagePath => _dressUpModel.CurAccessoryImagePath;
         public void IncrementAccessorySelection() {
             _dressUpModel.IncrementAccessorySelection();
 
@@ -80,7 +95,6 @@ namespace Grombdoll.ViewModels {
             OnCustomizationChanged?.Invoke();
         }
 
-        public string CurBackgroundImagePath => _dressUpModel.CurBackgroundImagePath;
         public void IncrementBackgroundSelection() {
             _dressUpModel.IncrementBackgroundSelection();
 
@@ -102,20 +116,6 @@ namespace Grombdoll.ViewModels {
             OnPropertyChanged(nameof(CurBackgroundImagePath));
 
             OnReset?.Invoke();
-        }
-
-        public DressUpViewModel(Func<bool> showSettingsView, Func<bool> showGalleryView, Func<bool> showCreditsView) {
-            _dressUpModel = new DressUpModel();
-
-            ShowSettingsView = () => {
-                return showSettingsView();
-            };
-            ShowGalleryView = () => {
-                return showGalleryView();
-            };
-            ShowCreditsView = () => {
-                return showCreditsView();
-            };
         }
 
         public void CopyGrombitToClipboardAndSaveLocally(Visual currentGrombitVisual) {

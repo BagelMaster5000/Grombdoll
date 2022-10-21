@@ -17,11 +17,11 @@
             VerticalScrollBarVisibility="Auto">
             <ScrollViewer.Content>
                 <ItemsControl
-                    x:Name="PuzzleView"
+                    x:Name="GrombitsView"
                     HorizontalAlignment="Center"
-                    ItemsSource="{Binding AllPuzzles}">
+                    ItemsSource="{Binding AllGrombitImages}">
 
-                    <!--<ItemsControl.ItemContainerStyle>
+                    <ItemsControl.ItemContainerStyle>
                         <Style>
                             <Setter Property="Grid.Row" Value="{Binding Row}" />
                             <Setter Property="Grid.Column" Value="{Binding Column}" />
@@ -31,64 +31,10 @@
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <Grid Width="175" Height="175">
-                    -->
-                    <!--<Image Source="..\Graphics\PuzzleSelectButton.png" />-->
-                    <!--
-                                <Button
-                                    Background="Transparent"
-                                    Click="PuzzleSelected"
-                                    Style="{StaticResource BouncyButtonBehavior}">
-                                    <Grid>
-                                        <Image Source="..\Graphics\PuzzleSelectButton.png" />
-
-                                        <Grid
-                                            HorizontalAlignment="Center"
-                                            VerticalAlignment="Center"
-                                            Visibility="{Binding Completed, Converter={StaticResource BoolToVisibilityConverter}}">
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="150" />
-                                                <RowDefinition Height="25" />
-                                            </Grid.RowDefinitions>
-                                            <Image
-                                                Grid.Row="0"
-                                                Width="120"
-                                                RenderOptions.BitmapScalingMode="NearestNeighbor"
-                                                Source="{Binding FinalImage, Converter={StaticResource BitmapToImageSourceConverter}}" />
-                                            <Viewbox
-                                                Grid.Row="1"
-                                                Margin="10,4,10,2"
-                                                HorizontalAlignment="Center"
-                                                VerticalAlignment="Center">
-                                                <TextBlock Foreground="White" Text="{Binding Name}" />
-                                            </Viewbox>
-                                        </Grid>
-                                        <Grid
-                                            HorizontalAlignment="Center"
-                                            VerticalAlignment="Center"
-                                            Visibility="{Binding Completed, Converter={StaticResource InverseBoolToVisibilityConverter}}">
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="150" />
-                                                <RowDefinition Height="25" />
-                                            </Grid.RowDefinitions>
-                                            <TextBlock
-                                                Grid.Row="0"
-                                                HorizontalAlignment="Center"
-                                                VerticalAlignment="Center"
-                                                FontSize="48"
-                                                Text="{Binding Size, Converter={StaticResource SizeIntToDimensionsStringConverter}}" />
-                                            <Viewbox
-                                                Grid.Row="1"
-                                                Margin="10,4,10,2"
-                                                HorizontalAlignment="Center"
-                                                VerticalAlignment="Center">
-                                                <TextBlock Foreground="White" Text="{Binding Name, Converter={StaticResource StringToQuestionMarkStringConverter}}" />
-                                            </Viewbox>
-                                        </Grid>
-                                    </Grid>
-                                </Button>
+                                <Image Source="{Binding GrombitImage}" />
                             </Grid>
                         </DataTemplate>
-                    </ItemsControl.ItemTemplate>-->
+                    </ItemsControl.ItemTemplate>
                 </ItemsControl>
             </ScrollViewer.Content>
         </ScrollViewer>
