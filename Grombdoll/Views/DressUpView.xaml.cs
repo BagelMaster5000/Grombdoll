@@ -52,7 +52,12 @@ namespace Grombdoll.Views {
         private void ResetButtonClicked(object sender, RoutedEventArgs e) => _dressUpViewModel.ResetCustomizations();
         private void SaveButtonClicked(object sender, RoutedEventArgs e) => _dressUpViewModel.CopyGrombitToClipboardAndSaveLocally(AllLayers);
 
+        private void GalleryViewButtonClicked(object sender, RoutedEventArgs e) => _dressUpViewModel.ShowGalleryView();
+        private void SettingsViewButtonClicked(object sender, RoutedEventArgs e) => _dressUpViewModel.ShowSettingsView();
+        private void CreditsViewButtonClicked(object sender, RoutedEventArgs e) => _dressUpViewModel.ShowGalleryView();
 
+
+        // Animations
         private void PlayBaseSlideInAnimation() => Base.RenderTransform.BeginAnimation(TranslateTransform.XProperty, slideInAnimation);
         private void PlayEyesSlideInAnimation() => Eyes.RenderTransform.BeginAnimation(TranslateTransform.XProperty, slideInAnimation);
         private void PlayMouthSlideInAnimation() => Mouth.RenderTransform.BeginAnimation(TranslateTransform.XProperty, slideInAnimation);

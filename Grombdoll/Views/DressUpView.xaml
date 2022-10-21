@@ -178,6 +178,7 @@
                 Grid.Row="3"
                 Grid.Column="0"
                 Background="Transparent"
+                Click="GalleryViewButtonClicked"
                 Style="{StaticResource BouncyButtonBehavior}">
                 <Image Source="..\Graphics\UI_Icons\Gallery.png" />
             </Button>
@@ -185,6 +186,7 @@
                 Grid.Row="3"
                 Grid.Column="1"
                 Background="Transparent"
+                Click="SettingsViewButtonClicked"
                 Style="{StaticResource BouncyButtonBehavior}">
                 <Image Source="..\Graphics\UI_Icons\Settings.png" />
             </Button>
@@ -192,6 +194,7 @@
                 Grid.Row="3"
                 Grid.Column="2"
                 Background="Transparent"
+                Click="CreditsViewButtonClicked"
                 Style="{StaticResource BouncyButtonBehavior}">
                 <Image Source="..\Graphics\UI_Icons\credits.png" />
             </Button>

@@ -6,7 +6,7 @@ namespace Grombdoll.ViewModels {
     public class DressUpViewModel : ViewModelBase {
         private readonly DressUpModel _dressUpModel;
 
-        public Func<bool> ShowTitleView;
+        public Func<bool> ShowSettingsView;
         public Func<bool> ShowGalleryView;
         public Func<bool> ShowCreditsView;
 
@@ -104,11 +104,11 @@ namespace Grombdoll.ViewModels {
             OnReset?.Invoke();
         }
 
-        public DressUpViewModel(Func<bool> showTitleView, Func<bool> showGalleryView, Func<bool> showCreditsView) {
+        public DressUpViewModel(Func<bool> showSettingsView, Func<bool> showGalleryView, Func<bool> showCreditsView) {
             _dressUpModel = new DressUpModel();
 
-            ShowTitleView = () => {
-                return showTitleView();
+            ShowSettingsView = () => {
+                return showSettingsView();
             };
             ShowGalleryView = () => {
                 return showGalleryView();

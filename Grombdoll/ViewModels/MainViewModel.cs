@@ -107,8 +107,8 @@ namespace Grombdoll.ViewModels {
         }
 
         public bool ShowDressUpView() {
-            DressUpViewModel titleViewModel = new DressUpViewModel(ShowTitleView, ShowGalleryView, ShowCreditsView);
-            bool viewModelWasQueued = ShowOrQueueViewModel(titleViewModel);
+            DressUpViewModel dressUpViewModel = new DressUpViewModel(ShowSettingsView, ShowGalleryView, ShowCreditsView);
+            bool viewModelWasQueued = ShowOrQueueViewModel(dressUpViewModel);
 
             if (viewModelWasQueued) {
                 StartTransitioningIn();
@@ -118,8 +118,8 @@ namespace Grombdoll.ViewModels {
         }
 
         public bool ShowGalleryView() {
-            TitleViewModel titleViewModel = new TitleViewModel(ShowDressUpView);
-            bool viewModelWasQueued = ShowOrQueueViewModel(titleViewModel);
+            GalleryViewModel galleryViewModel = new GalleryViewModel(ShowDressUpView);
+            bool viewModelWasQueued = ShowOrQueueViewModel(galleryViewModel);
 
             if (viewModelWasQueued) {
                 StartTransitioningIn();
