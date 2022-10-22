@@ -54,7 +54,7 @@ namespace Grombdoll.Views {
 
         private void GalleryViewButtonClicked(object sender, RoutedEventArgs e) => _dressUpViewModel.ShowGalleryView();
         private void SettingsViewButtonClicked(object sender, RoutedEventArgs e) => _dressUpViewModel.ShowSettingsView();
-        private void CreditsViewButtonClicked(object sender, RoutedEventArgs e) => _dressUpViewModel.ShowGalleryView();
+        private void CreditsViewButtonClicked(object sender, RoutedEventArgs e) => _dressUpViewModel.ShowCreditsView();
 
 
         // Animations

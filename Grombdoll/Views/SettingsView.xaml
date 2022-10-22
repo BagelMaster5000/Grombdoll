@@ -13,12 +13,11 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="60" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="60" />
         </Grid.RowDefinitions>
 
         <!--  Header Title  -->
         <Grid Grid.Row="0">
-            <Border Background="DarkGreen" Opacity="0.6" />
+            <Border Background="DarkGreen" Opacity="0.3" />
             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                 <TextBlock
                     Margin="0,0,0,6"
@@ -107,142 +106,19 @@
                     </StackPanel>
                 </Grid>
             </Border>
-
-            <Border
-                Grid.Row="2"
-                Width="650"
-                Margin="0,10,0,10"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Background="{StaticResource GrombWhiteBrush}"
-                CornerRadius="20">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="40" />
-                        <RowDefinition />
-                    </Grid.RowDefinitions>
-
-                    <TextBlock
-                        Grid.Row="0"
-                        Margin="0,10,0,0"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        FontSize="24"
-                        FontWeight="SemiBold"
-                        Text="Save Data" />
-
-                    <StackPanel
-                        Grid.Row="1"
-                        Margin="15,15,15,15"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Orientation="Vertical">
-                        <Button
-                            Margin="0,0,0,10"
-                            Background="{StaticResource GrombRedBrush}"
-                            Click="ResetStandardPuzzlesSaveData"
-                            Style="{StaticResource BouncyButtonBehavior}">
-                            <TextBlock
-                                Margin="20,10"
-                                HorizontalAlignment="Center"
-                                FontSize="22"
-                                Foreground="{StaticResource GrombWhiteBrush}"
-                                Text="Reset Standard Puzzles Save Data" />
-                        </Button>
-                        <Button
-                            Margin="0,10"
-                            Background="{StaticResource GrombRedBrush}"
-                            Click="ResetBonusPuzzlesSaveData"
-                            Style="{StaticResource BouncyButtonBehavior}">
-                            <TextBlock
-                                Margin="20,10"
-                                HorizontalAlignment="Center"
-                                FontSize="22"
-                                Foreground="{StaticResource GrombWhiteBrush}"
-                                Text="Reset Bonus Puzzles Save Data" />
-                        </Button>
-                    </StackPanel>
-                </Grid>
-            </Border>
-
-            <!--<Border
-                Width="650"
-                Margin="0,10,0,10"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Background="{StaticResource GrombWhiteBrush}"
-                CornerRadius="20">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="40" />
-                        <RowDefinition />
-                    </Grid.RowDefinitions>
-
-                    <TextBlock
-                        Grid.Row="0"
-                        Margin="0,10,0,0"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        FontSize="24"
-                        FontWeight="SemiBold"
-                        Text="Window" />
-
-                    <StackPanel
-                        Grid.Row="1"
-                        Margin="15,10,15,15"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Orientation="Horizontal">
-                        <StackPanel Margin="20,0" Orientation="Vertical">
-                            <TextBlock
-                                HorizontalAlignment="Center"
-                                FontSize="18"
-                                Text="Fullscreen" />
-                            <CheckBox
-                                Height="50"
-                                Margin="0,5,0,0"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Background="{StaticResource GrombDarkBlueBrush}"
-                                Click="ToggleFullscreen"
-                                IsChecked="{Binding Fullscreen, Mode=OneWay}"
-                                Style="{StaticResource BouncyCheckBoxBehavior}">
-                                <CheckBox.RenderTransformOrigin>
-                                    <Point X="0.5" />
-                                </CheckBox.RenderTransformOrigin>
-                                <CheckBox.RenderTransform>
-                                    <ScaleTransform ScaleX="3" ScaleY="3" />
-                                </CheckBox.RenderTransform>
-                            </CheckBox>
-                        </StackPanel>
-                    </StackPanel>
-                </Grid>
-            </Border>-->
         </StackPanel>
 
-
-        <!--  Buttons  -->
-        <StackPanel
-            Grid.Row="3"
-            Width="Auto"
-            Height="65"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Bottom"
-            Orientation="Horizontal">
-            <Button
-                Margin="10"
-                Click="ShowPuzzleSelect"
-                Style="{StaticResource ActionButton}">
-                <Grid>
-                    <components:BlueGradientActionButton />
-
-                    <TextBlock
-                        Margin="10,5"
-                        VerticalAlignment="Center"
-                        Foreground="LightCyan"
-                        Text="Puzzle Select" />
-                </Grid>
-            </Button>
-        </StackPanel>
+        <!--  Back Button  -->
+        <Button
+            Grid.Row="1"
+            Height="150"
+            Margin="5,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Background="Transparent"
+            Click="BackButtonClicked"
+            Style="{StaticResource BouncyButtonBehavior}">
+            <Image Source="..\Graphics\UI_Icons\Back.png" />
+        </Button>
     </Grid>
 </UserControl>

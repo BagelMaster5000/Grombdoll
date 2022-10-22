@@ -15,5 +15,8 @@ namespace Grombdoll.Views {
         private void ShowPuzzleSelect(object sender, RoutedEventArgs e) {
             _creditsViewModel.ShowDressUpView();
         }
+
+        // Buttons clicked
+        private void BackButtonClicked(object sender, RoutedEventArgs e) => _creditsViewModel.ShowDressUpView();
     }
 }

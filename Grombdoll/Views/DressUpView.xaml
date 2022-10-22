@@ -90,7 +90,11 @@
             </Grid>
         </Grid>
 
-        <Grid x:Name="CustomizationButtons" Margin="672,52,101,48">
+        <Grid
+            x:Name="CustomizationButtons"
+            Margin="0,0,70,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center">
             <Grid.RowDefinitions>
                 <RowDefinition Height="160" />
                 <RowDefinition Height="160" />

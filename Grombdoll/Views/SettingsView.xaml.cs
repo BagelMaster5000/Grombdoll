@@ -16,6 +16,9 @@ namespace Grombdoll.Views {
             _settingsViewModel.ShowDressUpView();
         }
 
+        // Buttons clicked
+        private void BackButtonClicked(object sender, RoutedEventArgs e) => _settingsViewModel.ShowDressUpView();
+
         private void ToggleMusicMute(object sender, RoutedEventArgs e) { }// => _settingsViewModel.ToggleMusicMute();
         private void ToggleSfxMute(object sender, RoutedEventArgs e) { }// => _settingsViewModel.ToggleSfxMute();
 
