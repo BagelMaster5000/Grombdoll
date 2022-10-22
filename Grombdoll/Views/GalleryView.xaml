@@ -50,7 +50,7 @@
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <Grid Width="175" Height="175">
-                                <Image Source="{Binding GrombitImage}" />
+                                <Image RenderOptions.BitmapScalingMode="NearestNeighbor" Source="{Binding GrombitImage}" />
                             </Grid>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
@@ -71,17 +71,29 @@
             <Image Source="..\Graphics\UI_Icons\Back.png" />
         </Button>
 
-        <!--  Folder Button  -->
-        <Button
-            Grid.Row="1"
-            Height="150"
-            Margin="5,0"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Top"
-            Background="Transparent"
-            Click="OpenGrombSaveFolder"
-            Style="{StaticResource BouncyButtonBehavior}">
-            <Image Source="..\Graphics\UI_Icons\folder.png" />
-        </Button>
+        <StackPanel Grid.Row="1" Orientation="Vertical">
+            <!--  Folder Button  -->
+            <Button
+                Height="150"
+                Margin="5,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Background="Transparent"
+                Click="OpenGrombSaveFolder"
+                Style="{StaticResource BouncyButtonBehavior}">
+                <Image Source="..\Graphics\UI_Icons\folder.png" />
+            </Button>
+            <!--  Refresh Button  -->
+            <Button
+                Height="150"
+                Margin="5,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Background="Transparent"
+                Click="RefreshGrombs"
+                Style="{StaticResource BouncyButtonBehavior}">
+                <Image Source="..\Graphics\UI_Icons\folder.png" />
+            </Button>
+        </StackPanel>
     </Grid>
 </UserControl>

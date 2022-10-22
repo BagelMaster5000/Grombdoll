@@ -1,8 +1,4 @@
 ﻿using Grombdoll.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Markup;
@@ -13,7 +9,7 @@ namespace Grombdoll.Views {
         public GalleryView() {
             Loaded += OnLoaded;
             Unloaded += OnUnloaded;
-            
+
             InitializeComponent();
         }
 
@@ -30,6 +26,7 @@ namespace Grombdoll.Views {
         // Buttons clicked
         private void BackButtonClicked(object sender, RoutedEventArgs e) => _galleryViewModel.ShowDressUpView();
         private void OpenGrombSaveFolder(object sender, RoutedEventArgs e) => _galleryViewModel.OpenGrombSaveFolder();
+        private void RefreshGrombs(object sender, RoutedEventArgs e) => _galleryViewModel.RefreshGrombs();
 
         private void SetGridRowsAndColumns() {
             int numPuzzles = _galleryViewModel.AllGrombitImages.Length;

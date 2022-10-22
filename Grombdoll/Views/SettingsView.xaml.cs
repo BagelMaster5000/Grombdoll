@@ -1,4 +1,5 @@
-﻿using Grombdoll.ViewModels;
+﻿using Grombdoll.Models.Systems;
+using Grombdoll.ViewModels;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -19,7 +20,12 @@ namespace Grombdoll.Views {
         // Buttons clicked
         private void BackButtonClicked(object sender, RoutedEventArgs e) => _settingsViewModel.ShowDressUpView();
 
-        private void ToggleMusicMute(object sender, RoutedEventArgs e)  => _settingsViewModel.ToggleMusicMute();
-        private void ToggleSfxMute(object sender, RoutedEventArgs e)  => _settingsViewModel.ToggleSfxMute();
+        private void ToggleMusicMute(object sender, RoutedEventArgs e) => _settingsViewModel.ToggleMusicMute();
+        private void ToggleSfxMute(object sender, RoutedEventArgs e) => _settingsViewModel.ToggleSfxMute();
+
+        private void ToggleCrunchMode(object sender, RoutedEventArgs e) => _settingsViewModel.ToggleCrunchMode();
+        private void ToggleLocalStorageSaving(object sender, RoutedEventArgs e) => _settingsViewModel.ToggleLocalStorageSaving();
+
+        private void NukeSavedGrombits(object sender, RoutedEventArgs e) => GrombitLocalSaveSystem.NukeSavedGrombits();
     }
 }

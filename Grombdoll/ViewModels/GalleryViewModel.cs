@@ -1,7 +1,6 @@
 ﻿using Grombdoll.Models;
 using Grombdoll.Models.Systems;
 using System;
-using static Grombdoll.Models.GalleryModel;
 
 namespace Grombdoll.ViewModels {
     public class GalleryViewModel : ViewModelBase {
@@ -23,6 +22,12 @@ namespace Grombdoll.ViewModels {
             _galleryModel.OpenGrombSaveFolder();
 
             AudioSystem.PlaySelect2();
+        }
+
+        public void RefreshGrombs() {
+            _galleryModel.GenerateGrombitImages();
+
+            OnPropertyChanged(nameof(AllGrombitImages));
         }
     }
 }

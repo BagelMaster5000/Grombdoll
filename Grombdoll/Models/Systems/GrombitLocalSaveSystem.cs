@@ -30,6 +30,7 @@ namespace Grombdoll.Models.Systems {
             using (FileStream stream = new FileStream(filePath, FileMode.Create))
                 encoder.Save(stream);
         }
+
         private static int GetNextAvailableSavedGrombitIndex() {
             // Delete files with incorrect naming convention
             DeleteFilesInSaveDirectoryWithIncorrectNamingConvention();
@@ -103,6 +104,14 @@ namespace Grombdoll.Models.Systems {
             Process.Start("explorer.exe", grombitSaveDirectory.FullName);
         }
 
+        public static void NukeSavedGrombits() {
+            foreach (FileInfo file in grombitSaveDirectory.GetFiles()) {
+                file.Delete();
+            }
+            foreach (DirectoryInfo dir in grombitSaveDirectory.GetDirectories()) {
+                dir.Delete(true);
+            }
+        }
 
         // Helpers
         private static void DeleteFilesInSaveDirectoryWithIncorrectNamingConvention() {

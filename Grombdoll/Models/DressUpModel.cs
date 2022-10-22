@@ -1,13 +1,8 @@
-﻿using System.Diagnostics;
-using System.IO;
-using System.Windows.Media.Imaging;
-using System.Windows.Media;
-using System.Windows;
+﻿using Grombdoll.Models.Systems;
 using System;
-using System.Printing;
-using static System.Net.WebRequestMethods;
-using File = System.IO.File;
-using Grombdoll.Models.Systems;
+using System.Windows;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace Grombdoll.Models {
     public class DressUpModel {
@@ -153,7 +148,7 @@ namespace Grombdoll.Models {
         public void CopyGrombitToClipboardAndSaveLocally(Visual currentGrombitVisual) {
             RenderTargetBitmap bmpCopied = CopyGrombitToClipboard(currentGrombitVisual);
 
-            if (!currentGrombitSaved) {
+            if (!currentGrombitSaved && GlobalVariables.LocalStorageSaving) {
                 GrombitLocalSaveSystem.SaveGrombitToLocalStorage(bmpCopied);
             }
 
@@ -161,8 +156,15 @@ namespace Grombdoll.Models {
         }
 
         private static RenderTargetBitmap CopyGrombitToClipboard(Visual currentGrombitVisual) {
-            double width = 580;
-            double height = 680;
+            double width, height;
+            if (GlobalVariables.CrunchMode) {
+                width = 58;
+                height = 68;
+            }
+            else {
+                width = 580;
+                height = 680;
+            }
             RenderTargetBitmap bmpCopied = new RenderTargetBitmap((int)Math.Round(width), (int)Math.Round(height), 96, 96, PixelFormats.Default);
             DrawingVisual dv = new DrawingVisual();
             using (DrawingContext dc = dv.RenderOpen()) {
