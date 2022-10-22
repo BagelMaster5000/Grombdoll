@@ -13,7 +13,7 @@ namespace Grombdoll {
         public App() { }
 
         protected override void OnStartup(StartupEventArgs e) {
-            //AudioSystem.InitializeMediaPlayers();
+            AudioSystem.InitializeMediaPlayers();
 
             MainWindow = new MainWindow() {
                 DataContext = new MainViewModel()

@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Audio\Music\gd-bg.wav" />
+    <None Remove="Audio\SFX\gd-back.wav" />
+    <None Remove="Audio\SFX\gd-select1.wav" />
+    <None Remove="Audio\SFX\gd-select2.wav" />
     <None Remove="Graphics\Accessories\Bagel.png" />
     <None Remove="Graphics\Accessories\CandyBucket.png" />
     <None Remove="Graphics\Accessories\ForkKnife.png" />
@@ -83,6 +87,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Audio\Music\gd-bg.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Audio\SFX\gd-back.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Audio\SFX\gd-select1.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Audio\SFX\gd-select2.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Graphics\Accessories\Bagel.png" />
     <Resource Include="Graphics\Accessories\CandyBucket.png" />
     <Resource Include="Graphics\Accessories\ForkKnife.png" />

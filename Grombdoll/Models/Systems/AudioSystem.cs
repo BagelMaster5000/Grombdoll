@@ -12,110 +12,79 @@ using System.Windows.Media.Animation;
 namespace Grombdoll.Models.Systems {
     public static class AudioSystem {
         public static void InitializeMediaPlayers() {
-            //string path = Path.GetFullPath(@"Audio\SFX\PlacedBlock.wav");
-            //_blockPlace.Open(new Uri(path));
-            //_blockPlace.Volume = 1;
-            //_blockPlace.Position = TimeSpan.MaxValue;
-            //path = Path.GetFullPath(@"Audio\SFX\PlacedX.wav");
-            //_xPlace.Open(new Uri(path));
-            //_xPlace.Volume = 1;
-            //_xPlace.Position = TimeSpan.MaxValue;
+            string path = Path.GetFullPath(@"Audio\SFX\gd-select1.wav");
+            _select1.Open(new Uri(path));
+            _select1.Volume = 1;
+            _select1.Position = TimeSpan.MaxValue;
 
-            //path = Path.GetFullPath(@"Audio\SFX\Complete.wav");
-            //_puzzleComplete.Open(new Uri(path));
-            //_puzzleComplete.Volume = 1;
-            //_puzzleComplete.Position = TimeSpan.MaxValue;
-            //path = Path.GetFullPath(@"Audio\SFX\Start.wav");
-            //_puzzleStart.Open(new Uri(path));
-            //_puzzleStart.Volume = 1;
-            //_puzzleStart.Position = TimeSpan.MaxValue;
-            //path = Path.GetFullPath(@"Audio\SFX\Return.wav");
-            //_longReturn.Open(new Uri(path));
-            //_longReturn.Volume = 1;
-            //_longReturn.Position = TimeSpan.MaxValue;
+            path = Path.GetFullPath(@"Audio\SFX\gd-select2.wav");
+            _select2.Open(new Uri(path));
+            _select2.Volume = 1;
+            _select2.Position = TimeSpan.MaxValue;
 
-            //path = Path.GetFullPath(@"Audio\Music\Music.wav");
-            //_music.Open(new Uri(path));
-            //_music.Volume = 0.5;
-            //_music.MediaEnded += (object? sender, EventArgs e) => {
-            //    _music.Position = TimeSpan.Zero;
-            //    _music.Play();
-            //};
+            path = Path.GetFullPath(@"Audio\SFX\gd-back.wav");
+            _back.Open(new Uri(path));
+            _back.Volume = 1;
+            _back.Position = TimeSpan.MaxValue;
+
+            path = Path.GetFullPath(@"Audio\Music\gd-bg.wav");
+            _music.Open(new Uri(path));
+            _music.Volume = 0.5;
+            _music.MediaEnded += (object? sender, EventArgs e) => {
+                _music.Position = TimeSpan.Zero;
+                _music.Play();
+            };
         }
 
 
         #region SFX
-        //private static MediaPlayer _blockPlace = new MediaPlayer();
-        //public static void PlayBlockPlace() {
-        //    _blockPlace.Position = TimeSpan.Zero;
-        //    _blockPlace.Play();
-        //}
+        private static MediaPlayer _select1 = new MediaPlayer();
+        public static void PlaySelect1() {
+            _select1.Position = TimeSpan.Zero;
+            _select1.Play();
+        }
 
-        //private static MediaPlayer _xPlace = new MediaPlayer();
-        //public static void PlayXPlace() {
-        //    _xPlace.Position = TimeSpan.Zero;
-        //    _xPlace.Play();
-        //}
+        private static MediaPlayer _select2 = new MediaPlayer();
+        public static void PlaySelect2() {
+            _select2.Position = TimeSpan.Zero;
+            _select2.Play();
+        }
 
-        //private static MediaPlayer _puzzleComplete = new MediaPlayer();
-        //public static void PlayPuzzleComplete() {
-        //    _puzzleComplete.Position = TimeSpan.Zero;
-        //    _puzzleComplete.Play();
-        //}
-
-        //private static MediaPlayer _puzzleStart = new MediaPlayer();
-        //public static void PlayPuzzleStart() {
-        //    _puzzleStart.Position = TimeSpan.Zero;
-        //    _puzzleStart.Play();
-        //}
-
-        //private static MediaPlayer _longReturn = new MediaPlayer();
-        //public static void PlayLongReturn() {
-        //    _longReturn.Position = TimeSpan.Zero;
-        //    _longReturn.Play();
-        //}
-        //public static void PlayQuickReturn() {
-        //    _xPlace.Volume = 1;
-        //    _xPlace.Position = TimeSpan.Zero;
-        //    _xPlace.Play();
-        //}
-        //public static void PlayQuickForward() {
-        //    _blockPlace.Volume = 0.5f;
-        //    _blockPlace.Position = TimeSpan.Zero;
-        //    _blockPlace.Play();
-        //}
+        private static MediaPlayer _back = new MediaPlayer();
+        public static void PlayBack() {
+            _back.Position = TimeSpan.Zero;
+            _back.Play();
+        }
         #endregion
 
 
         #region Music
-        //private static MediaPlayer _music = new MediaPlayer();
-        //public static void StartMusic(object? sender = null, EventArgs? e = null) {
-        //    _music.Play();
-        //}
-        //public static void StopMusic() {
-        //    _music.Stop();
-        //}
+        private static MediaPlayer _music = new MediaPlayer();
+        public static void StartMusic(object? sender = null, EventArgs? e = null) {
+            _music.Play();
+        }
+        public static void StopMusic() {
+            _music.Stop();
+        }
         #endregion
 
 
         #region Muting
-        //private static bool _sfxMuted;
-        //public static bool SfxMuted { get { return _sfxMuted; } set { _sfxMuted = value; RefreshAllSfxMute(); } }
-        //public static void ToggleSfxMute() {
-        //    SfxMuted = !SfxMuted;
-        //}
-        //private static void RefreshAllSfxMute() {
-        //    _blockPlace.IsMuted = _sfxMuted;
-        //    _xPlace.IsMuted = _sfxMuted;
-        //    _puzzleComplete.IsMuted = _sfxMuted;
-        //    _puzzleStart.IsMuted = _sfxMuted;
-        //    _longReturn.IsMuted = _sfxMuted;
-        //}
+        private static bool _sfxMuted;
+        public static bool SfxMuted { get { return _sfxMuted; } set { _sfxMuted = value; RefreshAllSfxMute(); } }
+        public static void ToggleSfxMute() {
+            SfxMuted = !SfxMuted;
+        }
+        private static void RefreshAllSfxMute() {
+            _select1.IsMuted = _sfxMuted;
+            _select2.IsMuted = _sfxMuted;
+            _back.IsMuted = _sfxMuted;
+        }
 
-        //public static bool MusicMuted { get { return _music.IsMuted; } set { _music.IsMuted = value; } }
-        //public static void ToggleMusicMute() {
-        //    MusicMuted = !MusicMuted;
-        //}
+        public static bool MusicMuted { get { return _music.IsMuted; } set { _music.IsMuted = value; } }
+        public static void ToggleMusicMute() {
+            MusicMuted = !MusicMuted;
+        }
         #endregion
     }
 }

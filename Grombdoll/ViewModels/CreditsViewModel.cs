@@ -7,7 +7,7 @@ namespace Grombdoll.ViewModels {
 
         public CreditsViewModel(Func<bool> showDressUpView) {
             ShowDressUpView = () => {
-                //AudioSystem.PlayPuzzleStart();
+                AudioSystem.PlayBack();
                 return showDressUpView();
             };
         }

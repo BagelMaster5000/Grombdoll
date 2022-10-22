@@ -19,10 +19,7 @@ namespace Grombdoll.Views {
         // Buttons clicked
         private void BackButtonClicked(object sender, RoutedEventArgs e) => _settingsViewModel.ShowDressUpView();
 
-        private void ToggleMusicMute(object sender, RoutedEventArgs e) { }// => _settingsViewModel.ToggleMusicMute();
-        private void ToggleSfxMute(object sender, RoutedEventArgs e) { }// => _settingsViewModel.ToggleSfxMute();
-
-        private void ResetStandardPuzzlesSaveData(object sender, RoutedEventArgs e) { }// => _settingsViewModel.ResetStandardPuzzlesSaveData();
-        private void ResetBonusPuzzlesSaveData(object sender, RoutedEventArgs e) { }// => _settingsViewModel.ResetBonusPuzzlesSaveData();
+        private void ToggleMusicMute(object sender, RoutedEventArgs e)  => _settingsViewModel.ToggleMusicMute();
+        private void ToggleSfxMute(object sender, RoutedEventArgs e)  => _settingsViewModel.ToggleSfxMute();
     }
 }

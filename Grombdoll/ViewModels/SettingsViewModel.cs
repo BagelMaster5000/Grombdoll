@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Grombdoll.Models.Systems;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,9 +11,19 @@ namespace Grombdoll.ViewModels {
 
         public SettingsViewModel(Func<bool> showDressUpView) {
             ShowDressUpView = () => {
-                //AudioSystem.PlayPuzzleStart();
+                AudioSystem.PlayBack();
                 return showDressUpView();
             };
+        }
+
+        internal void ToggleSfxMute() {
+            AudioSystem.ToggleSfxMute();
+            AudioSystem.PlaySelect1();
+        }
+
+        internal void ToggleMusicMute() {
+            AudioSystem.ToggleMusicMute();
+            AudioSystem.PlaySelect1();
         }
     }
 }

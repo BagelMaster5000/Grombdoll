@@ -8,10 +8,10 @@ namespace Grombdoll.ViewModels {
         public string Version => GlobalVariables.VERSION;
 
         public TitleViewModel(Func<bool> showDressUpView) {
-            //AudioSystem.StartMusic();
+            AudioSystem.StartMusic();
 
             ShowDressUpView = () => {
-                //AudioSystem.PlayPuzzleStart();
+                AudioSystem.PlaySelect2();
                 return showDressUpView();
             };
         }

@@ -1,4 +1,5 @@
 ﻿using Grombdoll.Models;
+using Grombdoll.Models.Systems;
 using System;
 using System.Windows.Media;
 
@@ -31,12 +32,15 @@ namespace Grombdoll.ViewModels {
             _dressUpModel = new DressUpModel();
 
             ShowSettingsView = () => {
+                AudioSystem.PlaySelect2();
                 return showSettingsView();
             };
             ShowGalleryView = () => {
+                AudioSystem.PlaySelect2();
                 return showGalleryView();
             };
             ShowCreditsView = () => {
+                AudioSystem.PlaySelect2();
                 return showCreditsView();
             };
         }
@@ -48,6 +52,8 @@ namespace Grombdoll.ViewModels {
 
             OnBaseChanged?.Invoke();
             OnCustomizationChanged?.Invoke();
+
+            AudioSystem.PlaySelect1();
         }
 
         public void IncrementEyesSelection() {
@@ -57,6 +63,8 @@ namespace Grombdoll.ViewModels {
 
             OnEyesChanged?.Invoke();
             OnCustomizationChanged?.Invoke();
+
+            AudioSystem.PlaySelect1();
         }
 
         public void IncrementMouthSelection() {
@@ -66,6 +74,8 @@ namespace Grombdoll.ViewModels {
 
             OnMouthChanged?.Invoke();
             OnCustomizationChanged?.Invoke();
+
+            AudioSystem.PlaySelect1();
         }
 
         public void IncrementOutfitSelection() {
@@ -75,6 +85,8 @@ namespace Grombdoll.ViewModels {
 
             OnOutfitChanged?.Invoke();
             OnCustomizationChanged?.Invoke();
+
+            AudioSystem.PlaySelect1();
         }
 
         public void IncrementShoesSelection() {
@@ -84,6 +96,8 @@ namespace Grombdoll.ViewModels {
 
             OnShoesChanged?.Invoke();
             OnCustomizationChanged?.Invoke();
+
+            AudioSystem.PlaySelect1();
         }
 
         public void IncrementAccessorySelection() {
@@ -93,6 +107,8 @@ namespace Grombdoll.ViewModels {
 
             OnAccessoryChanged?.Invoke();
             OnCustomizationChanged?.Invoke();
+
+            AudioSystem.PlaySelect1();
         }
 
         public void IncrementBackgroundSelection() {
@@ -102,6 +118,8 @@ namespace Grombdoll.ViewModels {
 
             OnBackgroundChanged?.Invoke();
             OnCustomizationChanged?.Invoke();
+
+            AudioSystem.PlaySelect1();
         }
 
         public void ResetCustomizations() {
@@ -116,10 +134,14 @@ namespace Grombdoll.ViewModels {
             OnPropertyChanged(nameof(CurBackgroundImagePath));
 
             OnReset?.Invoke();
+
+            AudioSystem.PlayBack();
         }
 
         public void CopyGrombitToClipboardAndSaveLocally(Visual currentGrombitVisual) {
             _dressUpModel.CopyGrombitToClipboardAndSaveLocally(currentGrombitVisual);
+
+            AudioSystem.PlaySelect1();
         }
     }
 }
