@@ -5,19 +5,17 @@ using System.IO;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
-namespace Grombdoll.Models.Systems
-{
-    public static class GrombitLocalSaveSystem
-    {
+namespace Grombdoll.Models.Systems {
+    public static class GrombitLocalSaveSystem {
         public struct GrombitGridImage {
             public ImageSource GrombitImage { get; set; }
             public int Row { get; set; }
             public int Column { get; set; }
         }
 
+        private static string appStartPath = Path.GetDirectoryName(Environment.ProcessPath);
+        private static DirectoryInfo grombitSaveDirectory = new DirectoryInfo(appStartPath + "\\" + GlobalVariables.GROMBIT_SAVE_FOLDER_NAME);
 
-
-        // Saving grombit
         public static void SaveGrombitToLocalStorage(RenderTargetBitmap bmpCopied) {
             CreateGrombitSaveFolderIfMissing();
 
@@ -33,20 +31,11 @@ namespace Grombdoll.Models.Systems
                 encoder.Save(stream);
         }
         private static int GetNextAvailableSavedGrombitIndex() {
-            string appStartPath = Path.GetDirectoryName(Environment.ProcessPath);
-            DirectoryInfo d = new DirectoryInfo(appStartPath + "\\" + GlobalVariables.GROMBIT_SAVE_FOLDER_NAME);
-
             // Delete files with incorrect naming convention
-            FileInfo[] files = d.GetFiles("*.bmp");
-            for (int i = 0; i < files.Length; i++) {
-                string fName = Path.GetFileNameWithoutExtension(files[i].Name);
-                if (!int.TryParse(fName.AsSpan(GlobalVariables.GROMBIT_SAVE_NAME.Length), out int dummy)) {
-                    File.Delete(files[i].FullName);
-                }
-            }
+            DeleteFilesInSaveDirectoryWithIncorrectNamingConvention();
 
             // Get array of ints
-            files = d.GetFiles("*.bmp");
+            FileInfo[] files = grombitSaveDirectory.GetFiles("*.bmp");
             int[] fileIndexes = new int[files.Length];
             for (int i = 0; i < files.Length; i++) {
                 string fName = Path.GetFileNameWithoutExtension(files[i].Name);
@@ -70,12 +59,21 @@ namespace Grombdoll.Models.Systems
             return nextAvailableIndex;
         }
 
-        // Getting array of all grombit images in save folder
+
         public static GrombitGridImage[] GetAllGrombitImagesInSaveFolder() {
             CreateGrombitSaveFolderIfMissing();
 
-            DirectoryInfo d = GetSaveFileDirectoryInfo();
-            FileInfo[] files = d.GetFiles("*.bmp");
+            FileInfo[] files = grombitSaveDirectory.GetFiles("*.bmp");
+            Array.Sort(files,
+                delegate (FileInfo a, FileInfo b) {
+                    string aName = Path.GetFileNameWithoutExtension(a.Name);
+                    int aIndex = int.Parse(aName.AsSpan(GlobalVariables.GROMBIT_SAVE_NAME.Length));
+
+                    string bName = Path.GetFileNameWithoutExtension(b.Name);
+                    int bIndex = int.Parse(bName.AsSpan(GlobalVariables.GROMBIT_SAVE_NAME.Length));
+
+                    return aIndex - bIndex;
+                });
             GrombitGridImage[] _allGrombitImages = new GrombitGridImage[files.Length];
             for (int i = 0; i < files.Length; i++) {
                 Bitmap bmp = new Bitmap(files[i].FullName);
@@ -99,25 +97,26 @@ namespace Grombdoll.Models.Systems
         }
 
 
-        // Opening grombit save folder
         public static void OpenGrombSaveFolder() {
             CreateGrombitSaveFolderIfMissing();
 
-            DirectoryInfo d = GetSaveFileDirectoryInfo();
-            Process.Start("explorer.exe", d.FullName);
+            Process.Start("explorer.exe", grombitSaveDirectory.FullName);
         }
 
 
         // Helpers
-        private static void CreateGrombitSaveFolderIfMissing() {
-            string appStartPath = Path.GetDirectoryName(Environment.ProcessPath);
-            Directory.CreateDirectory(appStartPath + "\\" + GlobalVariables.GROMBIT_SAVE_FOLDER_NAME);
+        private static void DeleteFilesInSaveDirectoryWithIncorrectNamingConvention() {
+            FileInfo[] files = grombitSaveDirectory.GetFiles("*.bmp");
+            for (int i = 0; i < files.Length; i++) {
+                string fName = Path.GetFileNameWithoutExtension(files[i].Name);
+                if (!int.TryParse(fName.AsSpan(GlobalVariables.GROMBIT_SAVE_NAME.Length), out int dummy)) {
+                    File.Delete(files[i].FullName);
+                }
+            }
         }
 
-        public static DirectoryInfo GetSaveFileDirectoryInfo() {
-            string appStartPath = Path.GetDirectoryName(Environment.ProcessPath);
-            DirectoryInfo directoryInfo = new DirectoryInfo(appStartPath + "\\" + GlobalVariables.GROMBIT_SAVE_FOLDER_NAME);
-            return directoryInfo;
+        private static void CreateGrombitSaveFolderIfMissing() {
+            Directory.CreateDirectory(grombitSaveDirectory.FullName);
         }
     }
 }
