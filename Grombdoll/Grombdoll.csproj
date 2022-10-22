@@ -5,6 +5,7 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>Graphics\Icons\Grombdoll.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -99,6 +100,7 @@
     <Content Include="Audio\SFX\gd-select2.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Graphics\Icons\Grombdoll.ico" />
     <Resource Include="Graphics\Accessories\Bagel.png" />
     <Resource Include="Graphics\Accessories\CandyBucket.png" />
     <Resource Include="Graphics\Accessories\ForkKnife.png" />

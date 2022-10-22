@@ -7,6 +7,7 @@ using System;
 using System.Printing;
 using static System.Net.WebRequestMethods;
 using File = System.IO.File;
+using Grombdoll.Models.Systems;
 
 namespace Grombdoll.Models {
     public class DressUpModel {
@@ -153,7 +154,7 @@ namespace Grombdoll.Models {
             RenderTargetBitmap bmpCopied = CopyGrombitToClipboard(currentGrombitVisual);
 
             if (!currentGrombitSaved) {
-                SaveGrombitToLocalStorage(bmpCopied);
+                GrombitLocalSaveSystem.SaveGrombitToLocalStorage(bmpCopied);
             }
 
             currentGrombitSaved = true;
@@ -173,54 +174,6 @@ namespace Grombdoll.Models {
             return bmpCopied;
         }
 
-        private void SaveGrombitToLocalStorage(RenderTargetBitmap bmpCopied) {
-            string appStartPath = System.IO.Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
-            Directory.CreateDirectory(appStartPath + "\\" + GlobalVariables.GROMBIT_SAVE_FOLDER_NAME);
-            int curGrombIndex = GetNextAvailableSavedGrombitIndex();
-            string filePath = String.Format(appStartPath + "\\" + GlobalVariables.GROMBIT_SAVE_FOLDER_NAME + "\\" +
-                GlobalVariables.GROMBIT_SAVE_NAME + curGrombIndex + ".bmp");
 
-            BitmapEncoder encoder = new BmpBitmapEncoder();
-            encoder.Frames.Add(BitmapFrame.Create(bmpCopied));
-            using (FileStream stream = new FileStream(filePath, FileMode.Create))
-                encoder.Save(stream);
-        }
-        private int GetNextAvailableSavedGrombitIndex() {
-            string appStartPath = System.IO.Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
-            DirectoryInfo d = new DirectoryInfo(appStartPath + "\\" + GlobalVariables.GROMBIT_SAVE_FOLDER_NAME);
-
-            // Delete files with incorrect naming convention
-            FileInfo[] files = d.GetFiles("*.bmp");
-            for (int i = 0; i < files.Length; i++) {
-                string fName = Path.GetFileNameWithoutExtension(files[i].Name);
-                if (!int.TryParse(fName.AsSpan(GlobalVariables.GROMBIT_SAVE_NAME.Length), out int dummy)) {
-                    File.Delete(files[i].FullName);
-                }
-            }
-
-            // Get array of ints
-            files = d.GetFiles("*.bmp");
-            int[] fileIndexes = new int[files.Length];
-            for (int i = 0; i < files.Length; i++) {
-                string fName = Path.GetFileNameWithoutExtension(files[i].Name);
-                int fIndex = int.Parse(fName.AsSpan(GlobalVariables.GROMBIT_SAVE_NAME.Length));
-                fileIndexes[i] = fIndex;
-            }
-            Array.Sort(fileIndexes);
-
-            // Get next available index for save file
-            int nextAvailableIndex = -1;
-            for (int i = 0; i < fileIndexes.Length; i++) {
-                if (fileIndexes[i] != i + 1) {
-                    nextAvailableIndex = i + 1;
-                    break;
-                }
-            }
-            if (nextAvailableIndex == -1) {
-                nextAvailableIndex = fileIndexes.Length + 1;
-            }
-
-            return nextAvailableIndex;
-        }
     }
 }
