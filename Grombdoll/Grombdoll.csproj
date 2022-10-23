@@ -76,6 +76,7 @@
     <None Remove="Graphics\UI_Icons\Gallery.png" />
     <None Remove="Graphics\UI_Icons\mouth.png" />
     <None Remove="Graphics\UI_Icons\mute.png" />
+    <None Remove="Graphics\UI_Icons\refresh.png" />
     <None Remove="Graphics\UI_Icons\Save.png" />
     <None Remove="Graphics\UI_Icons\Save2.png" />
     <None Remove="Graphics\UI_Icons\Settings.png" />
@@ -164,6 +165,7 @@
     <Resource Include="Graphics\UI_Icons\folder.png" />
     <Resource Include="Graphics\UI_Icons\mouth.png" />
     <Resource Include="Graphics\UI_Icons\mute.png" />
+    <Resource Include="Graphics\UI_Icons\refresh.png" />
     <Resource Include="Graphics\UI_Icons\Save.png" />
     <Resource Include="Graphics\UI_Icons\Save2.png" />
     <Resource Include="Graphics\UI_Icons\Settings.png" />
