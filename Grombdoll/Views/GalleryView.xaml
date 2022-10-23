@@ -92,7 +92,7 @@
                 Background="Transparent"
                 Click="RefreshGrombs"
                 Style="{StaticResource BouncyButtonBehavior}">
-                <Image Source="..\Graphics\UI_Icons\folder.png" />
+                <Image Source="..\Graphics\UI_Icons\refresh.png" />
             </Button>
         </StackPanel>
     </Grid>
