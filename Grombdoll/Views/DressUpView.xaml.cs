@@ -17,6 +17,11 @@ namespace Grombdoll.Views {
         private DoubleAnimation slideInAnimation;
         private IEasingFunction slideInEasingFunction;
 
+        private float cameraFlashTime = 1f;
+        private Duration cameraFlashDuration;
+        private DoubleAnimation cameraFlashAnimation;
+        private IEasingFunction cameraFlashEasingFunction;
+
         public DressUpView() {
             Loaded += OnLoaded;
 
@@ -29,6 +34,11 @@ namespace Grombdoll.Views {
             slideInAnimation = new DoubleAnimation(75, 0, slideInDuration);
             slideInEasingFunction = new BackEase() { EasingMode = EasingMode.EaseOut };
             slideInAnimation.EasingFunction = slideInEasingFunction;
+
+            cameraFlashDuration = new Duration(TimeSpan.FromSeconds(cameraFlashTime));
+            cameraFlashAnimation = new DoubleAnimation(1, 0, cameraFlashDuration);
+            cameraFlashEasingFunction = new PowerEase() { EasingMode = EasingMode.EaseIn };
+            cameraFlashAnimation.EasingFunction = cameraFlashEasingFunction;
 
             _dressUpViewModel.OnCustomizationChanged += PlayCustomizationChangedSound;
             _dressUpViewModel.OnBaseChanged += PlayBaseSlideInAnimation;
@@ -50,7 +60,10 @@ namespace Grombdoll.Views {
         private void AccessoryButtonClicked(object sender, RoutedEventArgs e) => _dressUpViewModel.IncrementAccessorySelection();
         private void BackgroundButtonClicked(object sender, RoutedEventArgs e) => _dressUpViewModel.IncrementBackgroundSelection();
         private void ResetButtonClicked(object sender, RoutedEventArgs e) => _dressUpViewModel.ResetCustomizations();
-        private void SaveButtonClicked(object sender, RoutedEventArgs e) => _dressUpViewModel.CopyGrombitToClipboardAndSaveLocally(AllLayers);
+        private void SaveButtonClicked(object sender, RoutedEventArgs e) {
+            _dressUpViewModel.CopyGrombitToClipboardAndSaveLocally(AllLayers);
+            PlayCameraFlashAnimation();
+        }
 
         private void GalleryViewButtonClicked(object sender, RoutedEventArgs e) => _dressUpViewModel.ShowGalleryView();
         private void SettingsViewButtonClicked(object sender, RoutedEventArgs e) => _dressUpViewModel.ShowSettingsView();
@@ -65,6 +78,8 @@ namespace Grombdoll.Views {
         private void PlayShoesSlideInAnimation() => Shoes.RenderTransform.BeginAnimation(TranslateTransform.XProperty, slideInAnimation);
         private void PlayAccessorySlideInAnimation() => Accessory.RenderTransform.BeginAnimation(TranslateTransform.XProperty, slideInAnimation);
         private void PlayBackgroundSlideInAnimation() => Background.RenderTransform.BeginAnimation(TranslateTransform.XProperty, slideInAnimation);
+
+        private void PlayCameraFlashAnimation() => Flash.BeginAnimation(OpacityProperty, cameraFlashAnimation);
 
         private void PlayResetAnimation() {
             DoubleAnimation scaleAnimation = new DoubleAnimation(1.1, 1, slideInDuration);
