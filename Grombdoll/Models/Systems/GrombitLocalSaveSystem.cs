@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -23,12 +24,14 @@ namespace Grombdoll.Models.Systems {
             string curGrombFileName = GlobalVariables.GROMBIT_SAVE_NAME + curGrombIndex;
 
             string appStartPath = Path.GetDirectoryName(Environment.ProcessPath);
-            string filePath = String.Format(appStartPath + "\\" + GlobalVariables.GROMBIT_SAVE_FOLDER_NAME + "\\" + curGrombFileName + ".bmp");
+            string filePath = String.Format(appStartPath + "\\" + GlobalVariables.GROMBIT_SAVE_FOLDER_NAME + "\\" + curGrombFileName + ".png");
 
+            MemoryStream stream = new MemoryStream();
             BitmapEncoder encoder = new BmpBitmapEncoder();
             encoder.Frames.Add(BitmapFrame.Create(bmpCopied));
-            using (FileStream stream = new FileStream(filePath, FileMode.Create))
-                encoder.Save(stream);
+            encoder.Save(stream);
+            Bitmap bitmap = new Bitmap(stream);
+            bitmap.Save(filePath, ImageFormat.Png);
         }
 
         private static int GetNextAvailableSavedGrombitIndex() {
@@ -36,7 +39,7 @@ namespace Grombdoll.Models.Systems {
             DeleteFilesInSaveDirectoryWithIncorrectNamingConvention();
 
             // Get array of ints
-            FileInfo[] files = grombitSaveDirectory.GetFiles("*.bmp");
+            FileInfo[] files = grombitSaveDirectory.GetFiles("*.png");
             int[] fileIndexes = new int[files.Length];
             for (int i = 0; i < files.Length; i++) {
                 string fName = Path.GetFileNameWithoutExtension(files[i].Name);
@@ -64,7 +67,7 @@ namespace Grombdoll.Models.Systems {
         public static GrombitGridImage[] GetAllGrombitImagesInSaveFolder() {
             CreateGrombitSaveFolderIfMissing();
 
-            FileInfo[] files = grombitSaveDirectory.GetFiles("*.bmp");
+            FileInfo[] files = grombitSaveDirectory.GetFiles("*.png");
             Array.Sort(files,
                 delegate (FileInfo a, FileInfo b) {
                     string aName = Path.GetFileNameWithoutExtension(a.Name);
