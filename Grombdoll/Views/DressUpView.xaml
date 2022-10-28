@@ -96,6 +96,7 @@
             </Grid>
         </Grid>
 
+        <!--  Customization Buttons  -->
         <Grid
             x:Name="CustomizationButtons"
             Margin="0,0,70,0"
@@ -174,7 +175,18 @@
                 Background="Transparent"
                 Click="SaveButtonClicked"
                 Style="{StaticResource BouncyButtonBehavior}">
-                <Image Source="..\Graphics\UI_Icons\Save.png" />
+                <Grid>
+                    <Image Source="..\Graphics\UI_Icons\Save.png" />
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="12"
+                        Text="👆 Also copies to clipboard!">
+                        <TextBlock.RenderTransform>
+                            <TranslateTransform X="0" Y="75" />
+                        </TextBlock.RenderTransform>
+                    </TextBlock>
+                </Grid>
             </Button>
             <Button
                 Grid.Row="2"
